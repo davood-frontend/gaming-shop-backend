@@ -6,6 +6,7 @@ export const GET = async (request, { params }) => {
     try {
         await connect()
         const consoles = await Console.findOne({ slug: slug })
+        revalidatePath('/')
         return new NextResponse(JSON.stringify(consoles), { status: 200 })
     } catch (err) {
         return new NextResponse(err.message, { status: 500 })
