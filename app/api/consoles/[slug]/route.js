@@ -1,6 +1,7 @@
 import connect from "@/app/utils/db"
 import { NextResponse } from "next/server"
 import Console from "@/app/models/Console"
+import { revalidatePath } from "next/cache"
 export const GET = async (request, { params }) => {
     const { slug } = params;
     try {
